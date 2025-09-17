@@ -1,0 +1,117 @@
+/* Compile to styles.css (e.g., `sass styles.scss styles.css`) */
+:root {
+  --bg: #0e1013;
+  --grid: rgba(255,255,255,0.06);
+  --card: #14181f;
+  --card-dim: #0f1319;
+  --stroke: #5b6472;
+  --stroke-strong: #96a1b3;
+  --text: #e8ecf1;
+  --muted: #a8b1bf;
+  --accent: #00d084;
+  --slack: #611f69;
+  --decision: #1f9d55;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+.app__header {
+  padding: 16px 20px;
+  border-bottom: 1px solid #1c212b;
+  background: #0b0d10;
+}
+.app__header h1 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.2;
+}
+.app__subtitle { color: var(--muted); font-size: 12px; margin-top: 4px; }
+
+.canvas {
+  position: relative;
+  height: calc(100vh - 66px);
+  overflow: auto;
+  background-image:
+    radial-gradient(var(--grid) 1px, transparent 1px),
+    radial-gradient(var(--grid) 1px, transparent 1px);
+  background-position: 0 0, 20px 20px;
+  background-size: 40px 40px;
+}
+
+/* SVG overlay for connectors */
+.wires {
+  position: absolute; inset: 0;
+  pointer-events: none;
+}
+
+/* Node cards */
+.node {
+  position: absolute;
+  min-width: 200px;
+  max-width: 260px;
+  background: var(--card);
+  border: 1px solid #1f2530;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(0,0,0,.3);
+}
+.node__content { padding: 16px 14px 14px 14px; }
+.node__title { font-weight: 600; margin: 0 0 2px; }
+.node__subtitle { color: var(--muted); font-size: 12px; }
+
+.node--decision .node__badge {
+  background: #133e2e; color: #baf3cf;
+}
+.node--action .node__badge {
+  background: #2a2138; color: #e0c8ff;
+}
+.node__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-bottom: 1px solid #1f2530;
+  width: 100%;
+  border-radius: 16px 16px 0 0;
+  background: var(--card-dim);
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+/* Ports (connection points) */
+.port {
+  position: absolute;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: #293040;
+  border: 1px solid #475164;
+}
+.port--out { right: -6px; top: calc(50% - 6px); }
+.port--in  { left:  -6px; top: calc(50% - 6px); }
+
+/* Branch labels (true/false/maybe) positioned mid-wire */
+.branch-label {
+  position: absolute;
+  padding: 2px 8px;
+  font-size: 11px;
+  border-radius: 20px;
+  background: #1b2130;
+  border: 1px solid #2a3345;
+  color: var(--muted);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* Small provider dot (Slack, etc.) */
+.provider {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--slack);
+  display: inline-block;
+}
