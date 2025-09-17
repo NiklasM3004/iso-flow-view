@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Workflow Split Renderer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* tiny reset if you haven’t compiled SCSS yet */
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="app__header">
+      <h1>Workflow</h1>
+      <div class="app__subtitle">Decision split with diverged paths</div>
+    </header>
+
+    <div id="canvas" class="canvas">
+      <!-- Nodes get injected here; an SVG overlay draws connectors -->
+      <svg id="wires" class="wires" xmlns="http://www.w3.org/2000/svg"></svg>
+    </div>
+  </div>
+
+  <!-- If you compile TypeScript to app.js, load it here -->
+  <script src="app.js"></script>
+</body>
+</html>
